@@ -24,7 +24,7 @@ def create_vector_store(file_path):
     )
     vector_store=QdrantVectorStore.from_documents(
         documents=split_docs,
-        url="http://localhost:6333",
+        url=os.getenv("QDRANT_URL"),
         collection_name="building_rag",
         embedding=embedder
     )
